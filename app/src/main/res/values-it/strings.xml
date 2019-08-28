@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Libreria personale</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="book_title_label">Titolo</string>
+    <string name="places">Locali</string>
+    <string name="title_activity_book">Libro</string>
+    <string name="title_activity_rooms">Locali</string>
+    <string name="new_room_hint">Nome locale</string>
+    <string name="save">Salva</string>
+    <string name="title_activity_room">Locale</string>
+    <string name="bokkcases">Armadi</string>
+    <string name="change">Modifica</string>
+    <string name="bookcases">Armadi</string>
+</resources>
