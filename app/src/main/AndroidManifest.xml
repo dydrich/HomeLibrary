@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UpdateRoomActivity"
+            android:label="@string/title_activity_update_room"
+            android:parentActivityName=".RoomsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.rbachis.homelibrary.RoomsActivity" />
+        </activity>
+        <activity
+            android:name=".NewRoomActivity"
+            android:label="@string/title_activity_room_change"
+            android:parentActivityName=".RoomsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.rbachis.homelibrary.RoomsActivity" />
+        </activity>
+        <activity
             android:name=".RoomActivity"
             android:label="@string/title_activity_room"
             android:parentActivityName=".RoomsActivity"

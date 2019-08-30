@@ -12,4 +12,8 @@
     <string name="bokkcases">Armadi</string>
     <string name="change">Modifica</string>
     <string name="bookcases">Armadi</string>
+    <string name="title_activity_room_change">Nuova stanza</string>
+    <string name="delete">Elimina</string>
+    <string name="empty_not_saved">Campo vuoto</string>
+    <string name="title_activity_update_room">Modifica stanza</string>
 </resources>

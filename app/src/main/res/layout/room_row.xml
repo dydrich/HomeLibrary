@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64sp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/roomRowText"
+                android:layout_width="match_parent"
+                android:layout_height="34sp"
+                android:layout_weight="5"
+                android:gravity="bottom"
+                android:paddingLeft="30sp"
+                android:text="TextView"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:theme="@style/Base.Widget.AppCompat.ListView" />
+
+            <TextView
+                android:id="@+id/hasBookcasesLabel"
+                android:layout_width="match_parent"
+                android:layout_height="30sp"
+                android:layout_weight="5"
+                android:gravity="top"
+                android:paddingLeft="30sp"
+                android:text="Nessun armadio presente"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/rowBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_weight="2"
+            android:background="@android:color/transparent"
+            android:contentDescription="Dots"
+            android:paddingRight="24dp"
+            android:src="@drawable/ic_more_vert_black_24dp"
+            android:onClick="showPopup" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="5"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>
