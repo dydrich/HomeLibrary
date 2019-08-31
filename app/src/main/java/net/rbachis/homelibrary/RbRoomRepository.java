@@ -30,6 +30,10 @@ public class RbRoomRepository {
         new updateAsyncTask(mDao).execute(room);
     }
 
+    public void delete (RbRoom room) {
+        new deleteAsyncTask(mDao).execute(room);
+    }
+
     private static class insertAsyncTask extends AsyncTask<RbRoom, Void, Void> {
 
         private RbRoomDao mAsyncTaskDao;
@@ -58,6 +62,22 @@ public class RbRoomRepository {
         @Override
         protected Void doInBackground(final RbRoom... params) {
             mAsyncTaskDao.updateRoom(params[0]);
+            return null;
+        }
+    }
+
+    private static class deleteAsyncTask extends AsyncTask<RbRoom, Void, Void> {
+
+        private RbRoomDao mAsyncTaskDao;
+
+        deleteAsyncTask(RbRoomDao dao) {
+
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final RbRoom... params) {
+            mAsyncTaskDao.deleteRoom(params[0]);
             return null;
         }
     }

@@ -23,7 +23,6 @@ public class RoomViewModel extends AndroidViewModel {
     }
 
     public void insert(RbRoom room) {
-
         mRepository.insert(room);
     }
 }

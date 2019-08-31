@@ -18,6 +18,9 @@ public interface RbRoomDao {
     @Update
     public void updateRoom(RbRoom room);
 
+    @Delete
+    public void deleteRoom(RbRoom room);
+
     @Query("DELETE FROM rb_rooms")
     void deleteAll();
 

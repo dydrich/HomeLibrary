@@ -1,8 +1,8 @@
 package net.rbachis.homelibrary;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.RoomViewHolder> {
+
+    private final Application app;
 
     class RoomViewHolder extends RecyclerView.ViewHolder {
         private final TextView roomItemView;
@@ -35,8 +36,9 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
     private final LayoutInflater mInflater;
     private List<RbRoom> mRooms; // Cached copy of words
 
-    RbRoomListAdapter(Context context) {
+    RbRoomListAdapter(Context context, Application application) {
         mInflater = LayoutInflater.from(context);
+        app = application;
     }
 
     @Override
@@ -53,12 +55,7 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
             holder.roomMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    CharSequence text = "" + current.getRoomId();
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(view.getContext(), text, duration);
-                    toast.show();
-                    showPopup(view, current);
+                    showPopup(view, current, position);
                 }
             });
         } else {
@@ -81,7 +78,7 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
         else return 0;
     }
 
-    private void showPopup(View v, RbRoom room) {
+    private void showPopup(View v, RbRoom room, int position) {
         PopupMenu popup = new PopupMenu(v.getContext(), v);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_room_item, popup.getMenu());
@@ -91,9 +88,12 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
                 switch (menuItem.getItemId()) {
                     case R.id.action_delete:
                         // Remove the item from the adapter
-                        mRooms.remove(v.getId());
+                        mRooms.remove(position);
+                        RbRoomRepository rbRep = new RbRoomRepository(app);
+                        rbRep.delete(room);
+                        notifyItemRemoved(position);
                         return true;
-                    case R.id.action_bookcases:
+                    case R.id.action_update:
                         Intent openRoom = new Intent(v.getContext(), UpdateRoomActivity.class);
                         openRoom.putExtra("room_id", room.getRoomId());
                         openRoom.putExtra("room_name", room.getRoomName());

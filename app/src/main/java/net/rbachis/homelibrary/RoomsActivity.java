@@ -44,7 +44,7 @@ public class RoomsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = findViewById(R.id.roomsView);
-        final RbRoomListAdapter adapter = new RbRoomListAdapter(this);
+        final RbRoomListAdapter adapter = new RbRoomListAdapter(this, getApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -71,7 +71,5 @@ public class RoomsActivity extends AppCompatActivity {
         }
 
     }
-
-
 
 }
