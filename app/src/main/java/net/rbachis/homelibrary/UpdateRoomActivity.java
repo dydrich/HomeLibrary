@@ -43,7 +43,7 @@ public class UpdateRoomActivity extends AppCompatActivity {
                 } else {
                     String word = roomName.getText().toString();
                     RbRoom rb = new RbRoom(room_id, word);
-                    RbRoomRepository rbRep = new RbRoomRepository(getApplication());
+                    RbRoomRepository rbRep = new RbRoomRepository((HomeLibraryApplication)getApplication());
                     rbRep.update(rb);
                 }
                 finish();

@@ -43,12 +43,13 @@ public class RoomsActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mRoomViewModel = ViewModelProviders.of(this).get(RoomViewModel.class);
         RecyclerView recyclerView = findViewById(R.id.roomsView);
-        final RbRoomListAdapter adapter = new RbRoomListAdapter(this, getApplication());
+        final RbRoomListAdapter adapter = new RbRoomListAdapter(this, (HomeLibraryApplication)getApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mRoomViewModel = ViewModelProviders.of(this).get(RoomViewModel.class);
+
         mRoomViewModel.getAllWords().observe(this, new Observer<List<RbRoom>>() {
             @Override
             public void onChanged(@Nullable final List<RbRoom> rooms) {

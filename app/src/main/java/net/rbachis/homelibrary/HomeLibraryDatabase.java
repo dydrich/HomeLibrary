@@ -9,9 +9,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {RbRoom.class}, version = 1)
+@Database(entities = {RbRoom.class, Bookcase.class}, version = 3)
 public abstract class HomeLibraryDatabase extends RoomDatabase {
     public abstract RbRoomDao rbroomDao();
+    public abstract BookcaseDao bookcaseDao();
 
     private static volatile HomeLibraryDatabase INSTANCE;
 
@@ -45,20 +46,27 @@ public abstract class HomeLibraryDatabase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final RbRoomDao mDao;
+        private final BookcaseDao bDao;
 
         PopulateDbAsync(HomeLibraryDatabase db) {
             mDao = db.rbroomDao();
+            bDao = db.bookcaseDao();
         }
 
         @Override
         protected Void doInBackground(final Void... params) {
             /*
             mDao.deleteAll();
-            RbRoom room = new RbRoom("Camera");
+            bDao.deleteAll();
+            RbRoom room = new RbRoom(1, "Camera");
             mDao.insertRoom(room);
-            room = new RbRoom("Studio");
+            room = new RbRoom(2, "Studio");
             mDao.insertRoom(room);
-             */
+            Bookcase bk = new Bookcase(1, "libreria nera", 9, 1);
+            bDao.insertBookcase(bk);
+            bk = new Bookcase(2, "libreria rossa", 5, 1);
+            bDao.insertBookcase(bk);
+            */
             return null;
         }
     }

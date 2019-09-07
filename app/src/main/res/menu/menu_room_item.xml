@@ -5,9 +5,6 @@
         android:id="@+id/action_update"
         android:title="@string/change" />
     <item
-        android:id="@+id/action_bookcases"
-        android:title="@string/bookcases" />
-    <item
         android:id="@+id/action_delete"
         android:title="@string/delete" />
 </menu>

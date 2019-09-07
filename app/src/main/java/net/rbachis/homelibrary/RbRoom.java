@@ -16,19 +16,21 @@ public class RbRoom {
     @ColumnInfo(name = "room_name")
     private String roomName;
 
+    private int bookcases;
+
     @Ignore
     public RbRoom(int id) {
         roomId = id;
         roomName = "";
     }
 
-    public RbRoom(int roomId, String roomName) {
+    public RbRoom(int roomId, @NonNull String roomName) {
         this.roomId = roomId;
         this.roomName = roomName;
     }
 
     @Ignore
-    public RbRoom(String roomName) {
+    public RbRoom(@NonNull String roomName) {
         this.roomName = roomName;
     }
 
@@ -47,5 +49,19 @@ public class RbRoom {
 
     public void setRoomName(@NonNull String roomName) {
         this.roomName = roomName;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return roomName;
+    }
+
+    public int getBookcases() {
+        return bookcases;
+    }
+
+    public void setBookcases(int bookcases) {
+        this.bookcases = bookcases;
     }
 }

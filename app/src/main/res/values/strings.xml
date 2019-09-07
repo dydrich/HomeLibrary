@@ -11,8 +11,12 @@
     <string name="bokkcases">Bookcases</string>
     <string name="change">Change</string>
     <string name="bookcases">Bookcases</string>
-    <string name="title_activity_room_change">RoomChangeActivity</string>
+    <string name="title_activity_room_change">New Room</string>
     <string name="empty_not_saved">Word not saved because it is empty.</string>
     <string name="delete">Delete</string>
     <string name="title_activity_update_room">Update Room</string>
+    <string name="title_activity_bookcases">Bookcases</string>
+    <string name="title_activity_new_bookcase">New Bookcase</string>
+    <string name="new_bookcase_hint">Bookcase name</string>
+    <string name="number_of_shelves">Number of Shelves</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Libreria personale</string>
+    <string name="app_name">Biblioteca personale</string>
     <string name="action_settings">Impostazioni</string>
     <string name="book_title_label">Titolo</string>
     <string name="places">Locali</string>
@@ -16,4 +16,8 @@
     <string name="delete">Elimina</string>
     <string name="empty_not_saved">Campo vuoto</string>
     <string name="title_activity_update_room">Modifica stanza</string>
+    <string name="title_activity_bookcases">Armadi</string>
+    <string name="title_activity_new_bookcase">Nuovo armadio</string>
+    <string name="new_bookcase_hint">Nome armadio</string>
+    <string name="number_of_shelves">Numero di ripiani</string>
 </resources>

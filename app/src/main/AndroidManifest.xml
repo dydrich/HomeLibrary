@@ -3,13 +3,31 @@
     package="net.rbachis.homelibrary">
 
     <application
+        android:name=".HomeLibraryApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".HomeLibraryApplication"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".NewBookcaseActivity"
+            android:label="@string/title_activity_new_bookcase"
+            android:parentActivityName=".BookcasesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.rbachis.homelibrary.BookcasesActivity" />
+        </activity>
+        <activity
+            android:name=".BookcasesActivity"
+            android:label="@string/title_activity_bookcases"
+            android:parentActivityName=".RoomActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="net.rbachis.homelibrary.RoomActivity" />
+        </activity>
         <activity
             android:name=".UpdateRoomActivity"
             android:label="@string/title_activity_update_room"

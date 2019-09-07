@@ -3,22 +3,27 @@ package net.rbachis.homelibrary;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.ListIterator;
 
 public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.RoomViewHolder> {
 
-    private final Application app;
+    private final HomeLibraryApplication app;
+    private final RbRoomRepository rbRoomRepository;
 
     class RoomViewHolder extends RecyclerView.ViewHolder {
         private final TextView roomItemView;
@@ -34,11 +39,12 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
     }
 
     private final LayoutInflater mInflater;
-    private List<RbRoom> mRooms; // Cached copy of words
+    private List<RbRoom> mRooms;
 
-    RbRoomListAdapter(Context context, Application application) {
+    RbRoomListAdapter(Context context, HomeLibraryApplication application) {
         mInflater = LayoutInflater.from(context);
         app = application;
+        rbRoomRepository = new RbRoomRepository(app);
     }
 
     @Override
@@ -52,6 +58,14 @@ public class RbRoomListAdapter extends RecyclerView.Adapter<RbRoomListAdapter.Ro
         if (mRooms != null) {
             RbRoom current = mRooms.get(position);
             holder.roomItemView.setText(current.getRoomName());
+            CharSequence bkcases = "";
+            if (current.getBookcases() < 1) {
+                bkcases = "Nessun armadio presente";
+            }
+            else {
+                bkcases = current.getBookcases() + " armadi";
+            }
+            holder.hasBookcases.setText(bkcases);
             holder.roomMenu.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
